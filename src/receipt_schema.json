@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Receipt",
+  "type": "object",
+  "required": [
+    "extras",
+    "items",
+    "total"
+  ],
+  "properties": {
+    "extras": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "format": "float"
+      }
+    },
+    "items": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/Item"
+      }
+    },
+    "total": {
+      "type": "number",
+      "format": "float"
+    }
+  },
+  "definitions": {
+    "Item": {
+      "type": "object",
+      "required": [
+        "people",
+        "price"
+      ],
+      "properties": {
+        "people": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "price": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    }
+  }
+}
